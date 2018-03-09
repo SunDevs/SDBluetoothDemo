@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_5" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SDBluetoothDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sw6-8X-mSV"/>
+                        <viewControllerLayoutGuide type="bottom" id="nBU-q1-fge"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vcv-ny-0lT">
+                                <rect key="frame" x="0.0" y="364" width="736" height="50"/>
+                                <color key="backgroundColor" red="0.79168051859999999" green="0.16519341209999999" blue="0.19810964110000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="E7t-yy-fZ1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Search devices">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="lookUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7MC-e2-nQ7"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="985-u9-28B" customClass="SDGraphicsView" customModule="SDBluetoothDemo" customModuleProvider="target">
+                                <rect key="frame" x="20" y="19.999999999999993" width="344" height="105.33333333333331"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TQJ-zh-xUk" customClass="SDGraphicsView" customModule="SDBluetoothDemo" customModuleProvider="target">
+                                <rect key="frame" x="20" y="133.33333333333334" width="344" height="104.66666666666666"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LBl-7L-Vs2" customClass="SDGraphicsView" customModule="SDBluetoothDemo" customModuleProvider="target">
+                                <rect key="frame" x="20" y="246" width="344" height="105"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vAP-59-fpq" customClass="SDGraphicsView" customModule="SDBluetoothDemo" customModuleProvider="target">
+                                <rect key="frame" x="372" y="19.999999999999993" width="344" height="105.33333333333331"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e9r-c4-pss" customClass="SDGraphicsView" customModule="SDBluetoothDemo" customModuleProvider="target">
+                                <rect key="frame" x="372" y="133.33333333333334" width="344" height="104.66666666666666"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TQv-9K-yNh" customClass="SDGraphicsView" customModule="SDBluetoothDemo" customModuleProvider="target">
+                                <rect key="frame" x="372" y="246" width="344" height="105"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="LBl-7L-Vs2" firstAttribute="top" secondItem="TQJ-zh-xUk" secondAttribute="bottom" constant="8" id="1Ih-mR-0TP"/>
+                            <constraint firstAttribute="trailing" secondItem="vcv-ny-0lT" secondAttribute="trailing" id="Abg-11-cmJ"/>
+                            <constraint firstItem="TQJ-zh-xUk" firstAttribute="height" secondItem="985-u9-28B" secondAttribute="height" id="ErD-Fi-23g"/>
+                            <constraint firstItem="e9r-c4-pss" firstAttribute="leading" secondItem="TQJ-zh-xUk" secondAttribute="trailing" constant="8" id="GgO-GU-sFw"/>
+                            <constraint firstItem="TQJ-zh-xUk" firstAttribute="top" secondItem="985-u9-28B" secondAttribute="bottom" constant="8" id="HMe-yV-CBS"/>
+                            <constraint firstItem="TQv-9K-yNh" firstAttribute="top" secondItem="e9r-c4-pss" secondAttribute="bottom" constant="8" id="Hrt-kf-BIS"/>
+                            <constraint firstItem="LBl-7L-Vs2" firstAttribute="width" secondItem="TQJ-zh-xUk" secondAttribute="width" id="Kbg-Az-lMX"/>
+                            <constraint firstItem="TQv-9K-yNh" firstAttribute="width" secondItem="e9r-c4-pss" secondAttribute="width" id="PkS-Fv-A6u"/>
+                            <constraint firstItem="e9r-c4-pss" firstAttribute="top" secondItem="vAP-59-fpq" secondAttribute="bottom" constant="8" id="Pxv-k7-L6i"/>
+                            <constraint firstItem="985-u9-28B" firstAttribute="top" secondItem="sw6-8X-mSV" secondAttribute="bottom" constant="20" id="R7h-3E-eJv"/>
+                            <constraint firstItem="985-u9-28B" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="SuR-Jt-wo6"/>
+                            <constraint firstItem="LBl-7L-Vs2" firstAttribute="height" secondItem="TQJ-zh-xUk" secondAttribute="height" id="Xby-LD-wCu"/>
+                            <constraint firstItem="TQv-9K-yNh" firstAttribute="leading" secondItem="LBl-7L-Vs2" secondAttribute="trailing" constant="8" id="YEF-Ok-UbJ"/>
+                            <constraint firstItem="e9r-c4-pss" firstAttribute="width" secondItem="vAP-59-fpq" secondAttribute="width" id="YkE-Hm-gBX"/>
+                            <constraint firstItem="vcv-ny-0lT" firstAttribute="top" secondItem="LBl-7L-Vs2" secondAttribute="bottom" constant="13" id="afg-QH-XvA"/>
+                            <constraint firstItem="vAP-59-fpq" firstAttribute="top" secondItem="sw6-8X-mSV" secondAttribute="bottom" constant="20" id="ar2-v8-xbh"/>
+                            <constraint firstItem="vcv-ny-0lT" firstAttribute="bottom" secondItem="nBU-q1-fge" secondAttribute="top" id="cF6-eA-v4m"/>
+                            <constraint firstItem="vAP-59-fpq" firstAttribute="leading" secondItem="985-u9-28B" secondAttribute="trailing" constant="8" id="fmV-W2-zHq"/>
+                            <constraint firstItem="TQv-9K-yNh" firstAttribute="height" secondItem="e9r-c4-pss" secondAttribute="height" id="hZg-I0-KkF"/>
+                            <constraint firstItem="LBl-7L-Vs2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="mQf-ae-fjJ"/>
+                            <constraint firstItem="e9r-c4-pss" firstAttribute="height" secondItem="vAP-59-fpq" secondAttribute="height" id="pci-oY-Rhc"/>
+                            <constraint firstItem="vcv-ny-0lT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="rdj-GR-hhz"/>
+                            <constraint firstItem="TQJ-zh-xUk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="t5J-a8-Ne4"/>
+                            <constraint firstAttribute="trailing" secondItem="vAP-59-fpq" secondAttribute="trailing" constant="20" id="vld-6O-Ysv"/>
+                            <constraint firstItem="vAP-59-fpq" firstAttribute="width" secondItem="985-u9-28B" secondAttribute="width" id="w8Z-Dz-UUi"/>
+                            <constraint firstItem="vAP-59-fpq" firstAttribute="height" secondItem="985-u9-28B" secondAttribute="height" id="x2T-wG-HhZ"/>
+                            <constraint firstItem="TQJ-zh-xUk" firstAttribute="width" secondItem="985-u9-28B" secondAttribute="width" id="yh6-eq-teN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnSearch" destination="vcv-ny-0lT" id="v01-8e-NUK"/>
+                        <outlet property="gvSensor1" destination="985-u9-28B" id="T4r-sW-DJ1"/>
+                        <outlet property="gvSensor2" destination="TQJ-zh-xUk" id="XRY-qV-G8I"/>
+                        <outlet property="gvSensor3" destination="LBl-7L-Vs2" id="83H-Ug-Y5D"/>
+                        <outlet property="gvSensor4" destination="vAP-59-fpq" id="81h-8V-bDI"/>
+                        <outlet property="gvSensor5" destination="e9r-c4-pss" id="JQC-ST-r2o"/>
+                        <outlet property="gvSensor6" destination="TQv-9K-yNh" id="aNE-fU-rtp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-85.59782608695653" y="-159.42028985507247"/>
+        </scene>
+    </scenes>
+</document>
