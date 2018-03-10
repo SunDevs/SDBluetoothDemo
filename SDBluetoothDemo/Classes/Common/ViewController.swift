@@ -31,13 +31,7 @@ class ViewController: UIViewController {
         devicesView.delegate = self
         
         updateButtonTitle()
-        
-        gvSensor1.alpha = 0
-        gvSensor2.alpha = 0
-        gvSensor3.alpha = 0
-        gvSensor4.alpha = 0
-        gvSensor5.alpha = 0
-        gvSensor6.alpha = 0
+        hideDevicesViews(true)
     }
     
     override func viewWillLayoutSubviews() {
@@ -63,7 +57,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func updateButtonTitle() {
+    private func updateButtonTitle() {
         if (SDBluetoothManager.sharedInstance.connectedPeripheral) != nil {
             btnSearch.setTitle("Disconnect device", for: .normal)
         }else {
@@ -71,6 +65,38 @@ class ViewController: UIViewController {
         }
     }
     
+    private func hideDevicesViews(_ hide: Bool) {
+        if hide {
+            gvSensor1.alpha = 0
+            gvSensor2.alpha = 0
+            gvSensor3.alpha = 0
+            gvSensor4.alpha = 0
+            gvSensor5.alpha = 0
+            gvSensor6.alpha = 0
+        }else {
+            gvSensor1.alpha = 1
+            gvSensor2.alpha = 1
+            gvSensor3.alpha = 1
+            gvSensor4.alpha = 1
+            gvSensor5.alpha = 1
+            gvSensor6.alpha = 1
+        }
+    }
+    
+    private func cleanDevicesViews() {
+        gvSensor1.graficaImageView.removeFromSuperview()
+        gvSensor2.graficaImageView.removeFromSuperview()
+        gvSensor3.graficaImageView.removeFromSuperview()
+        gvSensor4.graficaImageView.removeFromSuperview()
+        gvSensor5.graficaImageView.removeFromSuperview()
+        gvSensor6.graficaImageView.removeFromSuperview()
+        gvSensor1.yArray = []
+        gvSensor2.yArray = []
+        gvSensor3.yArray = []
+        gvSensor4.yArray = []
+        gvSensor5.yArray = []
+        gvSensor6.yArray = []
+    }
 }
 
 extension ViewController: SDBluetoothManagerDelegate {
@@ -89,36 +115,15 @@ extension ViewController: SDBluetoothManagerDelegate {
             let service = peripheral.services?.first
             SDBluetoothManager.sharedInstance.selectService(service!)
             devicesView.removeFromSuperview()
-            gvSensor1.alpha = 1
-            gvSensor2.alpha = 1
-            gvSensor3.alpha = 1
-            gvSensor4.alpha = 1
-            gvSensor5.alpha = 1
-            gvSensor6.alpha = 1
+            hideDevicesViews(false)
         }
         updateButtonTitle()
     }
     
     func bluetoothManagerdidDisconnectToPeriferial(_ peripheral: CBPeripheral, error: Error?) {
         updateButtonTitle()
-        gvSensor1.alpha = 0
-        gvSensor2.alpha = 0
-        gvSensor3.alpha = 0
-        gvSensor4.alpha = 0
-        gvSensor5.alpha = 0
-        gvSensor6.alpha = 0
-        gvSensor1.graficaImageView.removeFromSuperview()
-        gvSensor2.graficaImageView.removeFromSuperview()
-        gvSensor3.graficaImageView.removeFromSuperview()
-        gvSensor4.graficaImageView.removeFromSuperview()
-        gvSensor5.graficaImageView.removeFromSuperview()
-        gvSensor6.graficaImageView.removeFromSuperview()
-        gvSensor1.yArray = []
-        gvSensor2.yArray = []
-        gvSensor3.yArray = []
-        gvSensor4.yArray = []
-        gvSensor5.yArray = []
-        gvSensor6.yArray = []
+        hideDevicesViews(true)
+        cleanDevicesViews()
     }
     
     func bluetoothManagerGetDecodedSensorsInfo(_ decodeSensors: [String : [String : Int]]) {
