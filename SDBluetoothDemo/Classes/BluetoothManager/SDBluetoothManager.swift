@@ -134,7 +134,7 @@ class SDBluetoothManager: NSObject {
                 sensor6.append(byte)
             }
         }
-        let sensors = ["sensor1":sensor1, "sensor2":sensor2, "sensor3":sensor3, "sensor4":sensor4, "sensor5":sensor5, "sensor6":sensor6]
+        let sensors = [SDConstants.kSensor1:sensor1, SDConstants.kSensor2:sensor2, SDConstants.kSensor3:sensor3, SDConstants.kSensor4:sensor4, SDConstants.kSensor5:sensor5, SDConstants.kSensor6:sensor6]
         return sensors
     }
     
@@ -161,7 +161,7 @@ class SDBluetoothManager: NSObject {
         let EMGBits = String(format: "%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@", byte6[7].description, byte6[6].description, byte6[5].description, byte6[4].description, byte6[3].description, byte6[2].description, byte6[1].description, byte6[0].description, byte5[7].description, byte5[6].description, byte5[5].description, byte5[4].description, byte5[3].description, byte5[2].description, byte5[1].description, byte5[0].description)
         let EMG = binaryToInt(binaryString: EMGBits)
         
-        return ["sensorId":sensorId, "bateryLevel":bateryLevel, "timestamp":timestamp, "EMG":EMG]
+        return [SDConstants.kSensorId:sensorId, SDConstants.kBateryLevel:bateryLevel, SDConstants.kTimestamp:timestamp, SDConstants.kEMG:EMG]
     }
     
     private func bits(fromByte byte: UInt8) -> [Bit] {

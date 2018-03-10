@@ -127,12 +127,12 @@ extension ViewController: SDBluetoothManagerDelegate {
     }
     
     func bluetoothManagerGetDecodedSensorsInfo(_ decodeSensors: [String : [String : Int]]) {
-        gvSensor1.yArray.append(decodeSensors["sensor1"]!)
-        gvSensor2.yArray.append(decodeSensors["sensor2"]!)
-        gvSensor3.yArray.append(decodeSensors["sensor3"]!)
-        gvSensor4.yArray.append(decodeSensors["sensor4"]!)
-        gvSensor5.yArray.append(decodeSensors["sensor5"]!)
-        gvSensor6.yArray.append(decodeSensors["sensor6"]!)
+        gvSensor1.yArray.append(decodeSensors[SDConstants.kSensor1]!)
+        gvSensor2.yArray.append(decodeSensors[SDConstants.kSensor2]!)
+        gvSensor3.yArray.append(decodeSensors[SDConstants.kSensor3]!)
+        gvSensor4.yArray.append(decodeSensors[SDConstants.kSensor4]!)
+        gvSensor5.yArray.append(decodeSensors[SDConstants.kSensor5]!)
+        gvSensor6.yArray.append(decodeSensors[SDConstants.kSensor6]!)
         gvSensor1.graphicData()
         gvSensor2.graphicData()
         gvSensor3.graphicData()

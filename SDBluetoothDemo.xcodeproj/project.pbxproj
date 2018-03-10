@@ -20,6 +20,7 @@
 		238F15EB2047AF4600531DA8 /* SDGraphicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238F15E42047AF4600531DA8 /* SDGraphicsView.swift */; };
 		238F15EC2047AF4600531DA8 /* SDGraphicsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 238F15E52047AF4600531DA8 /* SDGraphicsView.xib */; };
 		238F15F52047AFB100531DA8 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 238F15EE2047AFB100531DA8 /* Info.plist */; };
+		23AE908A20537501008B278F /* SDConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AE908920537501008B278F /* SDConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		238F15E42047AF4600531DA8 /* SDGraphicsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDGraphicsView.swift; sourceTree = "<group>"; };
 		238F15E52047AF4600531DA8 /* SDGraphicsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDGraphicsView.xib; sourceTree = "<group>"; };
 		238F15EE2047AFB100531DA8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		23AE908920537501008B278F /* SDConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 			children = (
 				238F15DF2047AF4600531DA8 /* AppDelegate.swift */,
 				238F15E02047AF4600531DA8 /* ViewController.swift */,
+				23AE908920537501008B278F /* SDConstants.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 			files = (
 				238F15E92047AF4600531DA8 /* ViewController.swift in Sources */,
 				238F15E82047AF4600531DA8 /* AppDelegate.swift in Sources */,
+				23AE908A20537501008B278F /* SDConstants.swift in Sources */,
 				238F15E62047AF4600531DA8 /* SDDevicesView.swift in Sources */,
 				238F15EB2047AF4600531DA8 /* SDGraphicsView.swift in Sources */,
 				238F15EA2047AF4600531DA8 /* SDBluetoothManager.swift in Sources */,

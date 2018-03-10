@@ -101,7 +101,6 @@ class SDGraphicsView: UIView {
         }
         lblBitErrorRate.text = getBitsErrorRateFromData(yArray)
         
-        let baseMiliseconds: Double = 2500.0
         UIGraphicsBeginImageContext(CGSize(width: contextWidth, height: height));
         
         let contexto2: CGContext? = UIGraphicsGetCurrentContext()
@@ -111,17 +110,17 @@ class SDGraphicsView: UIView {
         
         for i in 0..<yArray.count {
             let valuei: [String:Int] = yArray[i]
-            let EMGValue: Int = valuei["EMG"]!
-            let timestampValue: Int = valuei["timestamp"]!
-            let chanelValue: Int = valuei["sensorId"]!
-            let bateryLevelValue: Int = valuei["bateryLevel"]!
+            let EMGValue: Int = valuei[SDConstants.kEMG]!
+            let timestampValue: Int = valuei[SDConstants.kTimestamp]!
+            let chanelValue: Int = valuei[SDConstants.kSensorId]!
+            let bateryLevelValue: Int = valuei[SDConstants.kBateryLevel]!
             let yi = (EMGValue*Int(height))/4095
             var xi: Double = 0.0
             if yArray.count > 1{
                 let value0: [String:Int] = yArray.first!
-                let timestampValue0: Int = value0["timestamp"]!
+                let timestampValue0: Int = value0[SDConstants.kTimestamp]!
                 let timeinMilis: Int = timestampValue - timestampValue0
-                xi = Double(timeinMilis*Int(contextWidth))/baseMiliseconds
+                xi = Double(timeinMilis*Int(contextWidth))/SDConstants.kBaseMiliseconds
             }
             
             grafica.addLine(to: CGPoint(x: CGFloat(xi), y: CGFloat((Int(height) - yi))))
@@ -145,10 +144,10 @@ class SDGraphicsView: UIView {
         
         let value0: [String:Int] = yArray.first!
         let valueLast: [String:Int] = yArray.last!
-        let timestampValue0: Int = value0["timestamp"]!
-        let timestampValueLast: Int = valueLast["timestamp"]!
+        let timestampValue0: Int = value0[SDConstants.kTimestamp]!
+        let timestampValueLast: Int = valueLast[SDConstants.kTimestamp]!
         let timeinMilis: Int = timestampValueLast - timestampValue0
-        let lastX = Double(timeinMilis*Int(contextWidth))/baseMiliseconds
+        let lastX = Double(timeinMilis*Int(contextWidth))/SDConstants.kBaseMiliseconds
         if lastX >= Double(contextWidth) {
             //yArray = []
             yArray.remove(at: 0)
@@ -159,12 +158,12 @@ class SDGraphicsView: UIView {
         var stringBps: String = ""
         let firstValue: [String:Int] = data.first!
         let lastValue: [String:Int] = data.last!
-        let firstTimestampValue: Int = firstValue["timestamp"]!
-        let lastTimestampValue: Int = lastValue["timestamp"]!
+        let firstTimestampValue: Int = firstValue[SDConstants.kTimestamp]!
+        let lastTimestampValue: Int = lastValue[SDConstants.kTimestamp]!
         let timeInterval = lastTimestampValue-firstTimestampValue
         if data.count > 1 && timeInterval > 0 {
             let timeIntervalInSeconds = Double(timeInterval)/1000.0
-            let bps = Double(data.count * 48)/timeIntervalInSeconds
+            let bps = Double(data.count * SDConstants.kBitsPerSensorInSample)/timeIntervalInSeconds
             stringBps = String(Int(bps))
         }
         return stringBps
@@ -177,11 +176,11 @@ class SDGraphicsView: UIView {
             if i > 0 {
                 let valueA: [String:Int] = data[i]
                 let valueB: [String:Int] = data[(i-1)]
-                let timestampValueA: Int = valueA["timestamp"]!
-                let timestampValueB: Int = valueB["timestamp"]!
+                let timestampValueA: Int = valueA[SDConstants.kTimestamp]!
+                let timestampValueB: Int = valueB[SDConstants.kTimestamp]!
                 let timeInterValues = timestampValueA-timestampValueB
-                if timeInterValues != 100 {
-                    totalErrors += ((timeInterValues-100)/100)
+                if timeInterValues != SDConstants.kMilisecondsSamplesInterval {
+                    totalErrors += ((timeInterValues-SDConstants.kMilisecondsSamplesInterval)/SDConstants.kMilisecondsSamplesInterval)
                 }
             }
         }
